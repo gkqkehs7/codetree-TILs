@@ -6,7 +6,7 @@ using namespace std;
 int check(vector<vector<int>> v, int x, int y, int x_end, int y_end) {
     for(int i=x; i<=x_end ; i++) {
         for(int j=y; j<=y_end; j++) {
-            if(v[i][j] < 0) {
+            if(v[i][j] <= 0) {
                 return -1;
             }
         }
