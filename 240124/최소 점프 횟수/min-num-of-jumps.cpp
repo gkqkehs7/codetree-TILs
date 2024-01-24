@@ -35,7 +35,11 @@ int main() {
 
     back_tracking(v, 0, 0);
 
-    if(answer == 999999999) cout << -1;
+    if(answer == 999999999) {
+        cout << -1;
+    } else {
+        cout << answer;
+    }
 
-    cout << answer;
+
 }
