@@ -45,18 +45,17 @@ int main() {
     int answer = 999999999;
 
     for(int i=0; i<combinations_v.size(); i++) {
-        // 선택된 m개  0 1 3
-        vector<int> combination_v = combinations_v[i];
+
 
         int max_len = 0;
 
-        for(int p = 0; p<combination_v.size(); p++) {
-            for(int k = p + 1; k < combination_v.size(); k++) {
-                int x1 = v[combination_v[p]].first;
-                int y1 = v[combination_v[p]].second;
+        for(int p = 0; p<combinations_v[i].size(); p++) {
+            for(int k = p + 1; k < combinations_v[i].size(); k++) {
+                int x1 = v[combinations_v[i][p]].first;
+                int y1 = v[combinations_v[i][p]].second;
 
-                int x2 = v[combination_v[k]].first;
-                int y2 = v[combination_v[k]].second;
+                int x2 = v[combinations_v[i][k]].first;
+                int y2 = v[combinations_v[i][k]].second;
 
                 int len = (x2-x1) * (x2-x1) + (y2-y1) * (y2-y1);
 
