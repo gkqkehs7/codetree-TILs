@@ -38,7 +38,7 @@ int main() {
     vector<int> combination_v;
     combination(combination_v);
 
-    int answer = 0;
+    int answer = -2147483648;
 
     for(int i=0; i<combinations_v.size(); i++) {
 
@@ -63,7 +63,7 @@ int main() {
             } else {
                 prev_cal = s[j];
             }
-            
+
         }
 
         answer = max(answer, prev);
