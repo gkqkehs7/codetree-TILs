@@ -46,7 +46,7 @@ int main() {
 
     if(n == 1) {
         cout << 0 << " " << 1;
-        return;
+        return 0;
     }
 
     int answer = 0;
