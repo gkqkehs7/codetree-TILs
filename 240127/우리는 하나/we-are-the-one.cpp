@@ -76,12 +76,7 @@ int main() {
         map.push_back(temp);
     }
 
-    if(n == 1) {
-        cout << 1;
-        return 1;
-    }
-    
-
+   
     int answer = 0;
     // 조합 구하기
     vector<pair<int, int>> temp;
