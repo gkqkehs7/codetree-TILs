@@ -80,7 +80,7 @@ int main() {
         cout << 1;
         return 1;
     }
-
+    
 
     int answer = 0;
     // 조합 구하기
