@@ -13,9 +13,11 @@ int dx[4] = { 0, 1, 0 ,- 1};
 int dy[4] = { 1, 0 , -1, 0 };
 int bfs(int x, int y) {
     queue<pair<int, int>> q;
+
+    visited_city[x][y] = true;
     q.push(make_pair(x, y));
 
-    int temp = 0;
+    int temp = 1;
     while(!q.empty()) {
         int now_x = q.front().first;
         int now_y = q.front().second;
@@ -105,11 +107,6 @@ int main() {
     }
 
 
-    if(n == 1) {
-        cout << 1;
-    } else {
-        cout << answer;
-    }
-
+    cout << answer;
 
 }
