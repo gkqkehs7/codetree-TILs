@@ -16,7 +16,7 @@ void dfs(vector<vector<int>> v, int x, int y) {
         int ny = y + dy[i];
 
         if(nx < n && nx >=0 && ny < n && ny >= 0) {
-            if(v[x][y] == v[nx][ny] && visited[nx][ny] == false) {
+            if(v[x][y] == v[nx][ny] && !visited[nx][ny]) {
                 visited[nx][ny] = true;
                 dfs(v, nx, ny);
                 exploded_block++;
@@ -44,12 +44,17 @@ int main() {
         map.push_back(temp);
     }
 
+    if(n == 1) {
+        cout << 0 << " " << 1;
+        return;
+    }
+
     int answer = 0;
     int max_exploded_block = 0;
 
     for(int i=0; i<n; i++) {
         for(int j=0; j<n; j++) {
-            if(visited[i][j] == false) {
+            if(!visited[i][j]) {
                 dfs(map, i , j);
                 max_exploded_block = max(max_exploded_block, exploded_block);
 
