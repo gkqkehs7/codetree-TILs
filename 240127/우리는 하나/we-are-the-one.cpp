@@ -76,7 +76,7 @@ int main() {
         map.push_back(temp);
     }
 
-   
+
     int answer = 0;
     // 조합 구하기
     vector<pair<int, int>> temp;
@@ -88,7 +88,10 @@ int main() {
         for(int j=0; j<combinations[i].size(); j++) {
             int x = combinations[i][j].first;
             int y = combinations[i][j].second;
-            temp += bfs(x, y);
+
+            if(!visited_city[x][y]) {
+                temp += bfs(x, y);
+            }
         }
 
         answer = max(answer, temp);
@@ -101,6 +104,12 @@ int main() {
         }
     }
 
-    cout << answer;
+
+    if(n == 1) {
+        cout << 1;
+    } else {
+        cout << answer;
+    }
+
 
 }
