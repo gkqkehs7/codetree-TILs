@@ -49,14 +49,18 @@ int main() {
     }
 
     int answer = 0;
+
     for(int i=0; i<combinations.size(); i++) {
         int c = v[2][combinations[i][0]];
         int d = v[3][combinations[i][1]];
 
         if(hash.find(-c -d) != hash.end()) {
-            // cout << c << " " << d << "\n";
-            answer += 1;
+            hash.find(-c -d)->second += 1;
         }
+    }
+
+    for(auto elem : hash) {
+        answer += elem.second;
     }
 
     cout << answer;
