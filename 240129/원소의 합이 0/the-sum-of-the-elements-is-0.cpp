@@ -1,67 +1,39 @@
 #include <iostream>
-#include <vector>
 #include <unordered_map>
+#include <vector>
+#define MAX_N 5000
 
 using namespace std;
+
 int n;
-
-vector<vector<int>> combinations;
-
-void combination(vector<int> v) {
-    if(v.size() == 2) {
-        combinations.push_back(v);
-        return;
-    }
-
-    for(int i=0; i<n; i++) {
-        v.push_back(i);
-        combination(v);
-        v.pop_back();
-    }
-}
+int arr[4][MAX_N];
+unordered_map<int,int> freq_first;  // A+B의 수열에서 두 원소의 합
+unordered_map<int,int> freq_second; // C+D의 수열에서 두 원소의 합
 
 int main() {
+
     cin >> n;
-
-    vector<vector<int>> v;
-
-    for(int i=0; i<4; i++) {
-        vector<int> temp;
-        for(int j=0; j<n; j++) {
-            int input;
-            cin >> input;
-            temp.push_back(input);
+    for(int i=0; i<4; i++){
+        for(int j=0; j<n; j++){
+            cin >> arr[i][j];
         }
-
-        v.push_back(temp);
-
     }
 
-    unordered_map<int, int> hash;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            freq_first[arr[0][i]+arr[1][j]]++;
 
-    vector<int> temp;
-    combination(temp);
-    for(int i=0; i<combinations.size(); i++) {
-        int a = v[0][combinations[i][0]];
-        int b = v[1][combinations[i][1]];
-
-        hash.insert(make_pair(a + b, 0));
+            freq_second[arr[2][i]+arr[3][j]]++;
+        }
     }
 
     int answer = 0;
-
-    for(int i=0; i<combinations.size(); i++) {
-        int c = v[2][combinations[i][0]];
-        int d = v[3][combinations[i][1]];
-
-        if(hash.find(-c -d) != hash.end()) {
-            hash.find(-c -d)->second += 1;
-        }
+    for(auto elem: freq_first){
+        int diff = -(elem.first);
+        if(freq_second.find(diff) != freq_second.end())
+            answer += freq_second[diff]*(elem.second);
     }
-
-    for(auto elem : hash) {
-        answer += elem.second;
-    }
-
-    cout << answer;
+    // 출력
+    cout << answer << '\n';
+    return 0;
 }
