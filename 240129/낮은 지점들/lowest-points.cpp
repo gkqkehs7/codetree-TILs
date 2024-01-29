@@ -17,8 +17,6 @@ int main() {
         if(hash.find(x) != hash.end()) {
             int origin_y = hash.find(x)->second;
 
-            cout << "find!\n";
-
             if(y < origin_y) {
                 hash.erase(x);
                 hash.insert(make_pair(x, y));
