@@ -28,7 +28,7 @@ int main() {
         }
     }
 
-    int answer = 0;
+    long long answer = 0;
 
     for(auto elem : hash){
        //  cout<<"key : "<<elem.first<<" value : "<<elem.second<<endl;
