@@ -22,9 +22,9 @@ int main() {
 
         cout << mid << " ";
 
-        // mid 2  <- 5
+        // mid 7
         // min 1 2
-        // max 3 4 5
+        // max 4 5 6
         for(int i=1; i<m; i++) {
             if(min_pq.size() < max_pq.size()) {
                 if(mid < arr[i]) {
@@ -34,7 +34,7 @@ int main() {
 
                     mid = -max_pq.top();
                     max_pq.pop();
-                } else if(mid > arr[i]) {
+                } else if(mid >= arr[i]) {
                     min_pq.push(arr[i]);
                 } else if(mid == arr[i]) {
                     min_pq.push(arr[i]);
@@ -43,12 +43,12 @@ int main() {
                 if(mid < arr[i]) {
                     max_pq.push(-arr[i]);
                 } else if(mid > arr[i]) {
-                    max_pq.push(mid);
+                    max_pq.push(-mid);
 
                     min_pq.push(arr[i]);
 
                     mid = min_pq.top();
-                    
+
                     min_pq.pop();
                 } else if(mid == arr[i]) {
                     max_pq.push(-arr[i]);
