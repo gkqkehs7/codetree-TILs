@@ -29,7 +29,7 @@ int main() {
     int prev_end = 0;
     int answer = 0;
 
-    for(int i=0; i<n; i++) {
+    for(int i=0; i<=n; i++) {
         int start_time, index, time;
 
         tie(start_time, index, time) = peoples[i];
